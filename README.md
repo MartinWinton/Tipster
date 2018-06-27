@@ -18,11 +18,13 @@ The following **optional** features are implemented:
 * [ ] Remembering the bill amount across app restarts (if <10mins)
 * [ ] Using locale-specific currency and currency thousands separators.
 * [x] Making sure the keyboard is always visible and the bill amount is always the first responder. This way the user doesn't have to tap anywhere to use this app. Just launch the app and start typing.
+  (If Users want to hide keyboard to see logo with total, they can click anywhere.)
 
 The following **additional** features are implemented:
 
 - Added animation to move total and tip information up when typing
 - Added Logo to loading screen
+- UI details (coloring of navigation bars, Tipster Logo, Fading of Logo upon release"
 
 ## Video Walkthrough
 
