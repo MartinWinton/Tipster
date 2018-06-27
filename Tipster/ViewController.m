@@ -45,7 +45,7 @@
     
   
     
-    NSArray *percentages = @[@(.15), @(.2), @(.22)];
+    NSArray *percentages = @[@(.15), @(.2), @(.32)];
     
     double tipPercentage = [percentages[self.tipControl.selectedSegmentIndex] doubleValue];
     
@@ -87,7 +87,7 @@
 }
 - (IBAction)onEdit:(id)sender {
     
-    NSArray *percentages = @[@(.15), @(.2), @(.22)];
+    NSArray *percentages = @[@(.15), @(.2), @(.32)];
     
     double tipPercentage = [percentages[self.tipControl.selectedSegmentIndex] doubleValue];
     
