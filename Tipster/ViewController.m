@@ -41,7 +41,6 @@
     [super viewDidAppear:animated];
     
     [self.billField becomeFirstResponder];
-     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
   
     
@@ -50,8 +49,16 @@
     double tipPercentage = [percentages[self.tipControl.selectedSegmentIndex] doubleValue];
     
     
-    double bill = [ [self.billField.text substringFromIndex:1]
+    
+    
+   
+        
+   double    bill =[ [self.billField.text substringFromIndex:1]
                    doubleValue];
+        
+    
+    
+
     double tip = tipPercentage*bill;
     double total = bill + tip;
     
@@ -91,9 +98,10 @@
     
     double tipPercentage = [percentages[self.tipControl.selectedSegmentIndex] doubleValue];
     
+    double bill =[ [self.billField.text substringFromIndex:1]
+               doubleValue];
+        
     
-    double bill = [ [self.billField.text substringFromIndex:1]
- doubleValue];
     double tip = tipPercentage*bill;
     double total = bill + tip;
     

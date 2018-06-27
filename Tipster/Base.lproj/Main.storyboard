@@ -24,7 +24,7 @@
                                 <color key="backgroundColor" red="0.34939059402419803" green="0.4100359065424487" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bdo-VD-s12">
-                                <rect key="frame" x="115" y="117" width="260" height="61"/>
+                                <rect key="frame" x="115" y="117" width="260" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="54"/>
@@ -116,6 +116,7 @@
                     <connections>
                         <outlet property="EquationView" destination="0OD-fa-nSE" id="vph-li-eGV"/>
                         <outlet property="billField" destination="bdo-VD-s12" id="ONN-72-tm0"/>
+                        <outlet property="equationView" destination="0OD-fa-nSE" id="FCd-Fh-ZYP"/>
                         <outlet property="tipControl" destination="Vve-TD-dXD" id="U6p-zV-kcE"/>
                         <outlet property="tipLabel" destination="Wnc-UO-Keu" id="iEl-QB-EWf"/>
                         <outlet property="tipsterLogo" destination="Cnk-SC-flt" id="tFE-EJ-ARF"/>
