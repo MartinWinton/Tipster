@@ -13,6 +13,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *tipLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *tipControl;
+@property (weak, nonatomic) IBOutlet UIView *equationView;
+@property (weak, nonatomic) IBOutlet UILabel *tipsterLogo;
 
 @end
 
@@ -29,12 +31,33 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     double defaultIndex = [defaults doubleForKey:@"default_tip_index"];
     
+    
+    
     [self.tipControl setSelectedSegmentIndex:defaultIndex];
     NSLog(@"View will appear");
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    
+    [self.billField becomeFirstResponder];
+     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+  
+    
+    NSArray *percentages = @[@(.15), @(.2), @(.22)];
+    
+    double tipPercentage = [percentages[self.tipControl.selectedSegmentIndex] doubleValue];
+    
+    
+    double bill = [ [self.billField.text substringFromIndex:1]
+                   doubleValue];
+    double tip = tipPercentage*bill;
+    double total = bill + tip;
+    
+    self.tipLabel.text = [NSString stringWithFormat:@"$%.2f",tip];
+    self.totalLabel.text = [NSString stringWithFormat:@"$%.2f",total];
+
     
     NSLog(@"View did appear");
 }
@@ -69,7 +92,8 @@
     double tipPercentage = [percentages[self.tipControl.selectedSegmentIndex] doubleValue];
     
     
-    double bill = [self.billField.text doubleValue];
+    double bill = [ [self.billField.text substringFromIndex:1]
+ doubleValue];
     double tip = tipPercentage*bill;
     double total = bill + tip;
     
@@ -82,19 +106,25 @@
     
   
    
-        CGRect newFrame = self.billField.frame;
+    
+    
+    
+    CGRect newEquationFrame = self.equationView.frame;
+    
+    newEquationFrame.origin.y -=150;
+    
+    
+ 
+    [UIView animateWithDuration:.2 animations:^{
+        self.equationView.frame = newEquationFrame;
         
-        newFrame.origin.y +=20;
+    }];
+    
+    
         
+    [UIView animateWithDuration:.2 animations:^{
         
-        [UIView animateWithDuration:.2 animations:^{
-            self.billField.frame = newFrame;
-
-        }];
-        
-    [UIView animateWithDuration:1 animations:^{
-        
-        self.tipLabel.alpha = 0;
+        self.tipsterLogo.alpha = 0;
         
     }];
 
@@ -109,22 +139,24 @@
 - (IBAction)onEditingEnd:(id)sender {
     
     
-    CGRect newFrame = self.billField.frame;
+
+    [UIView animateWithDuration:.2 animations:^{
+        
+        self.tipsterLogo.alpha = 1;
+        
+    }];
     
-    newFrame.origin.y -=20;
-   
+    CGRect newEquationFrame = self.equationView.frame;
+    
+    newEquationFrame.origin.y +=150;
+    
+    
     
     [UIView animateWithDuration:.2 animations:^{
-         self.billField.frame = newFrame;
-        
+        self.equationView.frame = newEquationFrame;
         
     }];
     
-    [UIView animateWithDuration:1 animations:^{
-        
-        self.tipLabel.alpha = 1;
-        
-    }];
     
     
 }
